@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}The Game{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+<body class="hacker">
+    <canvas id="lolcanvas" width="150" height="150" style="position:absolute;z-index:-100;top:0;left:0;width:100%;height:100%"></canvas>
+    <div class="container">
+        <a href="/"><img class="game-logo" src="/static/img/gamelogo.png"></a>
+        {% if user.is_authenticated %}
+        Hello, {{user}}!
+
+	<div class="top-forms">
+            <form action="/logout/" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Logout" />
+            </form>
+        </div>
+        {% else %}
+        Hello, Anon!
+	<div class="top-forms">
+            <form class="login-form-button" action="/login/" method="get">
+                <input type="submit" value="Login" />
+            </form>
+            <form class="register-form-button" action="/register/" method="get">
+                <input type="submit" value="Register" />
+            </form>
+        </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+	<div class="ranking-link"><a href="/ranking/">Ranking</a></div>
+        <div class="row bottom-links hacker">
+            <div class="col-md-12">
+                <a class="fa fa-3x fa-envelope hacker" href="mailto:info@hackersatupc.org"></a>
+                <a class="fa fa-3x fa-twitter hacker" href="https://twitter.com/hackupc"></a>
+                <a class="fa fa-3x fa-facebook-official hacker" href="https://facebook.com/hackupc"></a>
+                <a class="fa fa-3x fa-github hacker" href="https://github.com/hackupc"></a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var fillStyleDark = "#002400";
+        var fillStyleLight = "#000000";
+    </script>
+    <script src="/static/js/life.js"></script>
+</body>
+</html>

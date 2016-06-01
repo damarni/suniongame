@@ -1,0 +1,16 @@
+<h1>Lost</h1>
+
+<p>Alice and Bob are in a laberynth full of rooms that form a perfect balanced BST. All rooms (except the root) have a parent. All rooms (except the leaves) have a left and right child, and all leaves are at the same height. Moreover, the rooms are numbered with this pseudocode<p>
+<pre>
+void f(Node *node, int *act) {
+  if (node == NULL) return;
+  f(node->left, act);
+  node->id = (*act)++;
+  f(node->right, act);
+}
+int act = 1;
+f(root, &act);
+</pre>
+  <p>
+    Alice is in room <b>1337</b> and Bob is in room <b>1333333333333337</b>. Find the shortest path from Alice to Bob. Each step of the path can be either 'u', which means going from the actual room to its parent room. 'l', going from current room to its left child, and 'r', going to its right child. The answer is the concatenation of steps that describe the shortest path (lowercase).
+  </p>

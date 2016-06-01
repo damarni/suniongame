@@ -1,0 +1,143 @@
+@import "bootstrap";
+
+@font-face {
+    font-family: minecraftia;
+    src: url(/static/fonts/minecraftia.ttf);
+}
+
+* {
+    font-family: minecraftia;
+}
+
+$blight: #2A31EE;
+$bdark: #0F29CF;
+$hlight: #00EA01;
+$hdark: #023F04;
+$blink: #75ACDB;
+$bgray: #666;
+$bwhite: #FFF;
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+pre {
+    background-color: $hdark;
+    color: $hlight;
+    border-color: $hlight;
+}
+
+label {
+    position: relative;
+    top: 10px;
+    margin-right: 10px;
+}
+
+img.game-logo {
+    @include center-block();
+    width: 30%;
+    margin-top: 10vh;
+    margin-bottom: 2vh;
+}
+
+.game-description p {
+    @include center-block();
+    span {
+        color: $hlight;
+    }
+    font-size: 1.3em;
+    line-height: 1.9em;
+    text-align: center;
+    margin-top: 10vh;
+}
+
+.game-statement {
+    @include center-block();
+    span {
+        color: $hlight;
+    }
+    font-size: 1.3em;
+    line-height: 1.9em;
+    text-align: left;
+    margin-top: 5vh;
+    border: 5px dashed $hdark;
+    p {
+        margin: 0;
+    }
+    padding: 20px;
+}
+
+.game-answer {
+    font-size: 1.2em;
+    h1 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        margin-top: 50px;
+    }
+}
+
+body.hacker {
+    background: black;
+    color: $hlight;
+}
+
+input {
+    &[type="text"] {
+        text-indent: 6px;
+    }
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    background-color: $hdark;
+    border-color: $hlight;
+    &:active {
+        border-color: $hlight;
+    }
+}
+
+h1 {
+    color: $hlight;
+    margin-top: 5vh;
+    font-size: 3.5em;
+    margin-bottom: 5vh;
+}
+
+@media(max-width: 600px) {
+    .head-logo img {
+        width: 85%;
+    }
+}
+
+.top-forms {
+    form {
+        display: inline-block;
+    }
+    margin-bottom: 2vh;
+}
+
+.ranking-link {
+    @include center-block();
+    text-align: center;
+    margin-top: 5vh;
+    a {
+        color: $hlight;
+        text-decoration: none;
+        font-size: 1.4em;
+    }
+}
+
+.bottom-links {
+    @include center-block();
+    text-align: center;
+    margin-top: 25vh;
+    &.hacker {
+        margin-top: 5vh;
+    }
+    padding-bottom: 10vh;
+    a {
+        color: $hlight;
+        text-decoration: none;
+        padding: 0.4em;
+    }
+}

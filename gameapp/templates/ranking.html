@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Ranking</h1>
+
+    <table class="table">
+        <tr>
+            <th>User</th>
+            <th>Level</th>
+        </tr>
+        {% for u in users %}
+            <tr {% if u.username == user.username %}class="me"{% endif %}>
+                <td>{{u.username}}</td>
+                <td>{{u.level}}{% if u.level >= levellength %} - Finished {% endif %}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
